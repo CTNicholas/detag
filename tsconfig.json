@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "outDir": "build",
+    "experimentalDecorators": true,
+    "downlevelIteration": true,
+    "lib": [
+      "dom",
+      "es2020",
+      "scripthost"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    ".idea",
+    ".vscode",
+    ".git"
+  ]
+}

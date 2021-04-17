@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/index.ts"],
+  "sourcesContent": ["function detag (args: String) {\r\n  console.log('ruvvvnnindszfgsagg')\r\n  return true\r\n}\r\n\r\n\r\n// Converted to ESM by bundler\r\nmodule.exports = detag\r\n"],
+  "mappings": "gEAAA,2BAAgB,EAAc,CAC5B,eAAQ,IAAI,sBACL,GAKT,EAAO,QAAU",
+  "names": []
+}

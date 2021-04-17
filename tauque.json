@@ -1,0 +1,13 @@
+[
+  {
+    "name": "detag",
+    "source": "src/index.ts",
+    "watchDir": "",
+    "type": "all",
+    "minify": true,
+    "sourcemap": true,
+    "target": [
+      "es6"
+    ]
+  }
+]
