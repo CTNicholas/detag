@@ -1,2 +1,2 @@
-var e=(g,n)=>()=>(n||(n={exports:{}},g(n.exports,n)),n.exports);var t=e((u,r)=>{function o(g){return console.log("ruvvvnnindszfgsagg"),!0}r.exports=o});export default t();
+var y=(n,t)=>()=>(t||(t={exports:{}},n(t.exports,t)),t.exports);var o=y((g,u)=>{function a(n=void 0,t=void 0,c=!1){if(f(n))return`${n}`;if(!l(n))return null;if(n.length<1)return t;if(f(n[0]))return`${n[0]}`;if(!l(n[0]))return null;let[r,...s]=n,i="";for(let e=0;e<r.length;e++)i+=`${r[e]}${s[e]||""}`;return i}function l(n){return Array.isArray(n)}function f(n){return typeof n=="string"||n instanceof String}u.exports=a});export default o();
 //# sourceMappingURL=detag.module.js.map

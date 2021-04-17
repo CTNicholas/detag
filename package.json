@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest --findRelatedTests dist/detag.node.js",
     "dev": "tauque --dev",
     "build": "tauque"
   },
