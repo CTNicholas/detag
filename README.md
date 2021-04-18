@@ -12,21 +12,21 @@ the function normally:
 ```js
 import detag from 'detag'
 
-// With detag
+// Getting detagged argument
 function detaggedFunction (...args) {
   const name = detag(args)
   console.log(name)
 }
 
-//  'I am Chris' ✅
+// 'I am Chris' ✅
 detaggedFunction('I am ' + 'Chris')
 
-//  'I am Chris' ✅
+// 'I am Chris' ✅
 detaggedFunction`I am ${'Chris'}`
 ```
 
 ```js
-// Alternative detag definition
+// Alternative detag usage
 const detaggedFunction = detag(name => {
   console.log(name)
 })
@@ -86,3 +86,50 @@ const ignoreEscape = detag(name => {
   console.log(name)
 }, '', true)
 ```
+### Syntax
+```js
+const argument = detag(args[, defaultValue[, ignoreEscapeChars]])
+```
+<dl>
+  <dt>args</dt>
+  <dd>Array (see below). The functions parameters after using the rest parameter `function (...args)`</dd>
+  <dt>defaultValue</dt>
+  <dd>Any. The default value to be returned if no value is passed.</dd>
+  <dt>ignoreEscapeChars</dt>
+  <dd>Boolean. Whether escape characters should be ignored.</dd>
+</dl>
+
+#### Valid args value
+```js
+// 'I am Chris' ✅
+detag(['I am Chris'])
+
+// 'I am Chris' ✅
+detag([['I am Chris']])
+
+// 'I am Chris' ✅
+detag([['I', 'Chris'], [' am ']])
+```
+#### Invalid args value
+```js
+// null ❌
+detag('I am Chris')
+
+// null ❌
+detag(['I am', ['Chris']])
+
+// null ❌
+detag(undefined)
+```
+### Alternative syntax
+```js
+const func = detag(functionToDetag[, defaultValue[, ignoreEscapeChars]])
+```
+<dl>
+  <dt>functionToDetag</dt>
+  <dd>Function. The function to be passed the detagged argument.</dd>
+  <dt>defaultValue</dt>
+  <dd>Any. The default value to be returned if no value is passed.</dd>
+  <dt>ignoreEscapeChars</dt>
+  <dd>Boolean. Whether escape characters should be ignored.</dd>
+</dl>

@@ -1,9 +1,9 @@
 {
   "name": "detag",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tagged template literals, without substitutions. Convert tagged template literals arguments into regular string arguments, so that both types of function call return the same string argument.",
   "homepage": "https://github.com/CTNicholas/detag#readme",
-  "repository": "github:CTNicholas/modjool",
+  "repository": "github:CTNicholas/detag",
   "bugs": {
     "url": "https://github.com/CTNicholas/detag/issues"
   },
