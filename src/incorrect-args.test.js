@@ -2,12 +2,18 @@ const detag = require('../dist/detag.node.js')
 
 test('string passed', () => {
   const res = detag('hello')
-  expect(res === 'hello').toBe(true)
+  expect(res).toBeNull()
 })
+
+test('string array passed', () => {
+  const res = detag(['hello', 'testing'])
+  expect(res).toBeNull()
+})
+
 
 test('empty array passed', () => {
   const res = detag([])
-  expect(res).toBeUndefined()
+  expect(res).toBeNull()
 })
 
 test('undefined array passed', () => {

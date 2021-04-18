@@ -1,20 +1,38 @@
 {
   "name": "detag",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Tagged template literals, without substitutions. Convert tagged template literals arguments into regular string arguments, so that both types of function call return the same string argument.",
+  "homepage": "https://github.com/CTNicholas/detag#readme",
+  "repository": "github:CTNicholas/modjool",
+  "bugs": {
+    "url": "https://github.com/CTNicholas/detag/issues"
+  },
+  "main": "dist/detag.node.js",
+  "module": "dist/detag.module.jsg",
+  "source": "src/index.ts",
   "scripts": {
-    "test": "jest --findRelatedTests dist/detag.node.js",
+    "test": "jest --findRelatedTests dist/detag.node.js --watch",
     "dev": "tauque --dev",
     "build": "tauque"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "CTNicholas",
+  "license": "MIT",
   "devDependencies": {
     "jest": "^26.6.3",
     "tauque": "^1.1.5",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
-  }
+  },
+  "keywords": [
+    "tagged",
+    "template",
+    "literals",
+    "convert",
+    "string",
+    "tagged template",
+    "template literals",
+    "tagged literals",
+    "convert to string",
+    "substitutions"
+  ]
 }
