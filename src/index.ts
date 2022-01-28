@@ -12,22 +12,22 @@ function detag (
   const allArgs = [args, defaultValue, ignoreEscapeChars]
 
   // If function passed, try wrap with detag
-  if (isFunction(args)) {
+  if (args instanceof Function) {
     return handleWrappedFunction(allArgs)
   }
 
   // Error, no array passed, or array empty
-  if (!isArray(args) || args.length < 1) {
+  if (!Array.isArray(args) || (args as []).length < 1) {
     return null
   }
 
   // If single array element is string, this is a normal function call
-  if (isString(args[0]) && args.length === 1) {
+  if (isString(args[0]) && (args as string[]).length === 1) {
     return handleNormalFunction(allArgs)
   }
 
   // Error, first array value is not a valid template literal
-  if (!isArray(args[0]) || !isString(args[0][0])) {
+  if (!Array.isArray(args[0]) || !isString(args[0][0])) {
     return null
   }
 
@@ -43,12 +43,11 @@ function detag (
  * @param ignoreEscapeChars
  */
 function handleTaggedFunction ([args, defaultValue, ignoreEscapeChars]: any[]): string | any {
-  let [literals, ...subs]: [string[], any[]] = args
+  let [literals, ...subs]: [TemplateStringsArray, any[]] = args
   let result: string = ''
 
   if (ignoreEscapeChars === true) {
-    // @ts-ignore
-    literals = literals.raw
+    literals = literals.raw as TemplateStringsArray
   }
 
   for (let i = 0; i < literals.length; i++) {
@@ -76,21 +75,16 @@ function handleNormalFunction ([args, defaultValue]: any[]): string | any {
   return `${args[0]}`
 }
 
+/**
+ * Passed correct wrapped function parameters to detag and proceed
+ * @param allArgs
+ */
 function handleWrappedFunction (allArgs): () => {} {
   const [wrappedFunc, defaultVal = undefined, ignoreEscape = false] = allArgs
   return (...args) => {
     const detagged = detag(args, defaultVal, ignoreEscape)
     return wrappedFunc(detagged)
   }
-}
-
-// Helper functions
-function isFunction (arg: any): boolean {
-  return arg instanceof Function
-}
-
-function isArray (arg: any): boolean {
-  return Array.isArray(arg)
 }
 
 function isString (arg: any): boolean {
